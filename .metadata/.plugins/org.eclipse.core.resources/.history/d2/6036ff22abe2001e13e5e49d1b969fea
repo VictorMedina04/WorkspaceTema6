@@ -1,0 +1,12 @@
+package ejemplo01;
+
+public class Ppa {
+
+	public static void main(String[] args) {
+
+		int num = 10, den = 10;
+		double res = 0;
+
+	}
+
+}

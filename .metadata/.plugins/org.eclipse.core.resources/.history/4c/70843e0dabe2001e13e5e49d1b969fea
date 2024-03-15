@@ -1,0 +1,13 @@
+package ejemplo01;
+
+public class Ppa {
+
+	public static void main(String[] args) {
+
+		int e;
+
+		double a;
+
+	}
+
+}
