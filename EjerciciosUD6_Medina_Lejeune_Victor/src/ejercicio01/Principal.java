@@ -9,6 +9,9 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		String aux;
 		int op, num1, num2, resultado;
+		Calculadora calculadora = new Calculadora();
+
+		boolean repetir = false;
 
 		do {
 			System.out.println("""
@@ -32,6 +35,7 @@ public class Principal {
 					aux = sc.nextLine();
 					num2 = Integer.parseInt(aux);
 					resultado = num1 + num2;
+					System.out.printf("El resultado es: %.2f", resultado);
 				} catch (RuntimeException error) {
 					System.out.println("Introduzca un número correcto");
 				}
@@ -45,6 +49,7 @@ public class Principal {
 					aux = sc.nextLine();
 					num2 = Integer.parseInt(aux);
 					resultado = num1 - num2;
+					System.out.printf("El resultado es: %.2f", resultado);
 				} catch (RuntimeException error) {
 					System.out.println("Introduzca un número correcto");
 				}
@@ -58,6 +63,8 @@ public class Principal {
 					aux = sc.nextLine();
 					num2 = Integer.parseInt(aux);
 					resultado = num1 * num2;
+					System.out.printf("El resultado es: %.2f", resultado);
+
 				} catch (RuntimeException error) {
 					System.out.println("Introduzca un número correcto");
 				}
@@ -71,6 +78,8 @@ public class Principal {
 					aux = sc.nextLine();
 					num2 = Integer.parseInt(aux);
 					resultado = num1 / num2;
+					System.out.printf("El resultado es: %.2f", resultado);
+
 				} catch (RuntimeException error2) {
 					System.out.println("Introduzca un número correcto");
 				}
@@ -80,7 +89,8 @@ public class Principal {
 					System.out.println("Introduzca el primero número");
 					aux = sc.nextLine();
 					num1 = Integer.parseInt(aux);
-					Math.sqrt(num1);
+					System.out.printf("El resultado es: %.2f", Math.sqrt(num1));
+
 				} catch (RuntimeException error2) {
 					System.out.println("Introduzca un número correcto");
 				}
@@ -93,6 +103,25 @@ public class Principal {
 
 		} while (op != 0);
 
-	}
+		do {
 
+			System.out.println("Introduzca el numerador");
+			aux = sc.nextLine();
+			num1 = Integer.parseInt(aux);
+			System.out.println("Introudzca el denominador");
+			aux = sc.nextLine();
+			num2 = Integer.parseInt(aux);
+
+			try {
+				calculadora.dividir(2, 0);
+				// calculadora.calcularRaizCuadrada(-3);
+				repetir = true;
+			} catch (ArithmeticException e) {
+				System.err.println("Error, introduzcalo bien");
+			} catch (Exception e) {
+				System.err.println("Error, introduzcalo bien");
+			}
+
+		} while (repetir);
+	}
 }
