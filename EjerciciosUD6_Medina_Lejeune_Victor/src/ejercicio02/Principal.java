@@ -18,14 +18,16 @@ public class Principal {
 				if (celsius < -273) {
 					throw new TemperaturaException("Error de temperatura");
 				}
-				fahrenheit = celsius * 9 / 5 + 32;
+				fahrenheit = celsius * 9.0 / 5.0 + 32;
 				System.out.printf("%.2f ºC son %.2f ºF", celsius, fahrenheit);
 				repetir = true;
+			} catch (TemperaturaException e) {
+				System.out.println(e.getMessage());
 			} catch (Exception e) {
 				System.err.println(e.getMessage());
 			}
 
 		} while (!repetir);
-
+		sc.close();
 	}
 }
