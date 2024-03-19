@@ -8,12 +8,6 @@ public class Principal {
 
 		Scanner sc = new Scanner(System.in);
 		String aux;
-<<<<<<< HEAD
-		boolean repetir = false;
-		do {
-
-		} while (repetir);
-=======
 		int a, b, c, x = 5;
 		boolean repetir = false;
 		do {
@@ -50,7 +44,7 @@ public class Principal {
 
 		} while (!repetir);
 		sc.close();
->>>>>>> 08d795913a0fcca32a152284264c5fb8292a4861
+
 	}
 
 }
