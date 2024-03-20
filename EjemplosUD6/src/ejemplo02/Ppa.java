@@ -20,13 +20,17 @@ public class Ppa {
 				aux = sc.nextLine();
 				fechaReserva = LocalDate.parse(aux);
 				gestionReserva.hacerReserva(fechaReserva);
-
+				repetir = true;
+			} catch (ExceptionReserva e) {
+				System.out.println(e.getMessage());
+			} catch (RuntimeException e) {
+				System.out.println(e.getMessage());
 			} catch (Exception e) {
-
+				System.out.println(e.getMessage());
 			}
 
 		} while (!repetir);
-
+		sc.close();
 	}
 
 }
