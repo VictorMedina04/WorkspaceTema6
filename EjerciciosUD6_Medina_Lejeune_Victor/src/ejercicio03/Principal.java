@@ -44,6 +44,7 @@ public class Principal {
 
 		} while (!repetir);
 		sc.close();
+
 	}
 
 }
