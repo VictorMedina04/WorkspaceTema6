@@ -8,12 +8,12 @@ public class Principal {
 
 		Scanner sc = new Scanner(System.in);
 
-		String aux, codigo, codigoTrabajador = "A1234";
+		String aux, codigo;
 		double recaudado, totalRecaudado = 400;
-		int operaciones, operacionesTotales = 50;
+		int operaciones;
 		boolean repetir = false;
 
-		Caja caja = new Caja(totalRecaudado, operacionesTotales, codigoTrabajador);
+		Caja caja = new Caja(totalRecaudado);
 
 		do {
 			try {
@@ -34,20 +34,17 @@ public class Principal {
 
 				repetir = true;
 			} catch (ExceptionCodigo e) {
-				System.out.println("Errror inesperado, introduzca los datos validos");
+				System.err.println("Error en el codigo del trabajador, introduzca su codigo ");
 
 			} catch (ExceptionRecaudado e) {
 
-				System.out.println("Errror inesperado, introduzca los datos validos");
+				System.err.println("Debe ser igual a lo recaudado, no robes pillin");
 			} catch (ExceptionOperaciones e) {
 
-				System.out.println("Errror inesperado, introduzca los datos validos");
+				System.err.println("No puedes hacer operaciones negativas");
 			} catch (RuntimeException e) {
 
-				System.out.println("Errror inesperado, introduzca los datos validos");
-			} catch (Exception e) {
-
-				System.out.println("Errror inesperado, introduzca los datos validos");
+				System.err.println("Errror inesperado, introduzca los datos validos");
 			}
 		} while (!repetir);
 		sc.close();

@@ -3,14 +3,10 @@ package ejercicio;
 public class Caja {
 
 	private double totalRecaudado;
-	private int operacionesTotales;
-	private String codigoTrabajador;
 
-	public Caja(double totalRecaudado, int operacionesTotales, String codigoTrabajador) {
+	public Caja(double totalRecaudado) {
 		super();
 		this.totalRecaudado = totalRecaudado;
-		this.operacionesTotales = operacionesTotales;
-		this.codigoTrabajador = codigoTrabajador;
 	}
 
 	public double getTotalRecaudado() {
@@ -21,45 +17,36 @@ public class Caja {
 		this.totalRecaudado = totalRecaudado;
 	}
 
-	public int getOperacionesTotales() {
-		return operacionesTotales;
-	}
-
-	public void setOperacionesTotales(int operacionesTotales) {
-		this.operacionesTotales = operacionesTotales;
-	}
-
-	public String getCodigoTrabajador() {
-		return codigoTrabajador;
-	}
-
-	public void setCodigoTrabajador(String codigoTrabajador) {
-		this.codigoTrabajador = codigoTrabajador;
-	}
-
 	@Override
 	public String toString() {
-		return "Caja [totalRecaudado=" + totalRecaudado + ", operacionesTotales=" + operacionesTotales
-				+ ", codigoTrabajador=" + codigoTrabajador + "]";
+		return "Caja [totalRecaudado=" + totalRecaudado + "]";
 	}
 
-	public void comprobarRecaudado(double recaudado) throws ExceptionRecaudado {
+	public boolean comprobarRecaudado(double recaudado) throws ExceptionRecaudado {
 
 		if (recaudado != totalRecaudado) {
 			throw new ExceptionRecaudado();
+		} else {
+			return true;
 		}
 	}
 
-	public void comprobarOperaciones(int operaciones) throws ExceptionOperaciones {
+	public boolean comprobarOperaciones(int operaciones) throws ExceptionOperaciones {
 
-		if (operaciones != operacionesTotales) {
+		if (operaciones < 0) {
 			throw new ExceptionOperaciones();
+		} else {
+			return true;
 		}
 	}
 
-	public void comprobarCodigo(String codigo) throws ExceptionCodigo {
+	public boolean comprobarCodigo(String codigo) throws ExceptionCodigo {
 
-		if (!codigo.equals(codigoTrabajador)) {
+		String expresion = "[A-Z a-z][0-9]{4}";
+
+		if (codigo.matches(expresion)) {
+			return true;
+		} else {
 			throw new ExceptionCodigo();
 		}
 	}
